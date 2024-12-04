@@ -18,7 +18,7 @@ def ask_height(message):
 def process_weight(message):
     try:
         height = float(message.text)
-        msg = bot.send_message(message.chat.id, "Отлично! Теперь введите свой вес в килограммах:")
+        msg = bot.send_message(message.chat.id, "Отлично! Теперь введите свой вес в сантиметрах:")
         bot.register_next_step_handler(msg, calculate_bmi, height=height)
     except ValueError:
         bot.send_message(message.chat.id, "Рост должен быть числом. Попробуйте ещё раз.")
@@ -27,6 +27,7 @@ def process_weight(message):
 def calculate_bmi(message, height):
     try:
         weight = float(message.text)
+        height = height / 100
         bmi = weight / (height ** 2)
 
         if bmi < 18.5:
