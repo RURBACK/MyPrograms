@@ -49,7 +49,7 @@ def cube(message):
         bot.reply_to(message, "Пожалуйста, введите корректное число.")
     
 
-token = '8039833591:AAEomAmZX4tkxtxoWDmfezrl77r8hnJmF-g' #token
+token = 'ВАШ_ТОКЕН' #token
 
 bot = telebot.TeleBot(token)
 print("Бот запущен...")
